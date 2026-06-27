@@ -1,4 +1,5 @@
 import { useLang } from '../App.jsx'
+import { asset } from '../utils/asset.js'
 
 const copy = {
   zh: {
@@ -65,7 +66,7 @@ export default function EfficiencyFilm() {
 
         <div className="efficiency-film__screen reveal" aria-label={text.caption}>
           <div className="efficiency-film__viewport">
-            <img className="efficiency-film__machine" src="/images/shengzhong-efficiency-line.jpg" alt="Qingdao Shengzhong dry-end equipment" />
+            <img className="efficiency-film__machine" src={asset('/images/shengzhong-efficiency-line.jpg')} alt="Qingdao Shengzhong dry-end equipment" />
             <div className="efficiency-film__belt" aria-hidden="true">
               {Array.from({ length: 7 }, (_, index) => (
                 <span key={index} style={{ '--delay': `${index * -0.72}s` }} />
@@ -84,7 +85,7 @@ export default function EfficiencyFilm() {
               ))}
             </div>
             <div className="efficiency-film__brand">
-              <img src="/images/cys-logo.png" alt="CYS" />
+              <img src={asset('/images/cys-logo.png')} alt="CYS" />
               <span>QINGDAO SHENGZHONG</span>
             </div>
           </div>

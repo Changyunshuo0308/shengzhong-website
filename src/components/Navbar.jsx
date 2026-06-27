@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLang } from '../App.jsx'
+import { asset } from '../utils/asset.js'
 
 const languages = [
   { code: 'zh', label: '中文' },
@@ -41,7 +42,7 @@ export default function Navbar({ detailMode = false }) {
       <div className="container nav__inner">
         <button className="brand" onClick={() => { window.location.hash = ''; window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
           <span className="brand__mark">
-            <img className="brand__logo" src="/images/cys-logo.png" alt="CYS CNC Equipment" />
+            <img className="brand__logo" src={asset('/images/cys-logo.png')} alt="CYS CNC Equipment" />
           </span>
           <span className="brand__text">{t.brand}</span>
         </button>

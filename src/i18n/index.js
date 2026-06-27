@@ -1,8 +1,10 @@
+import { asset } from '../utils/asset.js'
+
 const productImages = [
-  '/images/product_1.jpg',
-  '/images/product_2.jpg',
-  '/images/product_3.jpg',
-  '/images/product_4.jpg'
+  asset('/images/product_1.jpg'),
+  asset('/images/product_2.jpg'),
+  asset('/images/product_3.jpg'),
+  asset('/images/product_4.jpg')
 ]
 
 const i18n = {

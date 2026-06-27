@@ -1,16 +1,18 @@
+import { asset } from '../utils/asset.js'
+
 const images = [
-  '/images/catalog_09.jpg',
-  '/images/catalog_10.jpg',
-  '/images/catalog_11.jpg',
-  '/images/catalog_12.jpg',
-  '/images/catalog_13.jpg',
-  '/images/catalog_14.jpg',
-  '/images/catalog_15.jpg',
-  '/images/catalog_16.jpg',
-  '/images/catalog_17.jpg',
-  '/images/catalog_18.jpg',
-  '/images/catalog_19.jpg',
-  '/images/equip_page5_18.jpg'
+  asset('/images/catalog_09.jpg'),
+  asset('/images/catalog_10.jpg'),
+  asset('/images/catalog_11.jpg'),
+  asset('/images/catalog_12.jpg'),
+  asset('/images/catalog_13.jpg'),
+  asset('/images/catalog_14.jpg'),
+  asset('/images/catalog_15.jpg'),
+  asset('/images/catalog_16.jpg'),
+  asset('/images/catalog_17.jpg'),
+  asset('/images/catalog_18.jpg'),
+  asset('/images/catalog_19.jpg'),
+  asset('/images/equip_page5_18.jpg')
 ]
 
 const paramLabels = {
@@ -303,7 +305,7 @@ const productBase = [
   },
   {
     slug: 'z-fold-continuous-stacker',
-    image: '/images/z-fold-continuous-stacker.jpg',
+    image: asset('/images/z-fold-continuous-stacker.jpg'),
     speed: { zh: '连续生产', en: 'Continuous production', ru: 'Непрерывное производство' },
     width: { zh: '定制线宽', en: 'Custom line width', ru: 'Индивидуальная ширина линии' },
     changeover: { zh: '自动换垛', en: 'Automatic stack replacement', ru: 'Автоматическая замена стопы' },

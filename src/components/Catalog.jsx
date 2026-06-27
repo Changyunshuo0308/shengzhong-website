@@ -1,4 +1,5 @@
 import { useLang } from '../App.jsx'
+import { asset } from '../utils/asset.js'
 
 export default function Catalog() {
   const { t } = useLang()
@@ -8,8 +9,8 @@ export default function Catalog() {
     <section id="catalog" className="section catalog">
       <div className="container catalog__grid">
         <div className="catalog__visual reveal">
-          <img src="/russian_page_1.png" alt={catalog.label} />
-          <img src="/russian_page_2.png" alt={catalog.title} />
+          <img src={asset('/russian_page_1.png')} alt={catalog.label} />
+          <img src={asset('/russian_page_2.png')} alt={catalog.title} />
         </div>
         <div className="catalog__copy reveal">
           <p className="section-label">{catalog.label}</p>
