@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+.env.*
+*.local
+*.log
+shengzhong-website-dist.zip
+public/_russian_extracted.txt
