@@ -734,6 +734,7 @@ p { color: var(--muted); line-height: 1.75; }
   box-shadow: var(--shadow);
 }
 .contact-final__form input,
+.contact-final__form select,
 .contact-final__form textarea {
   width: 100%;
   border: 1px solid rgba(17,17,17,.14);
@@ -746,6 +747,20 @@ p { color: var(--muted); line-height: 1.75; }
 }
 .contact-final__form input::placeholder,
 .contact-final__form textarea::placeholder { color: rgba(17,17,17,.46); }
+.contact-final__form select {
+  appearance: none;
+  color: rgba(17,17,17,.72);
+}
+.contact-final__form button:disabled {
+  cursor: wait;
+  opacity: .72;
+}
+.contact-final__status {
+  margin-top: 0;
+  color: var(--gold-2);
+  font-weight: 900;
+}
+.contact-final__status--error { color: #b42318; }
 
 .detail-page { background: var(--bg); }
 .detail-hero {

@@ -13,7 +13,8 @@ const copy = {
     ],
     cta: '了解更多',
     hud: ['ENERGY -20%', 'OUTPUT +35%', 'CHANGEOVER 3-6s'],
-    caption: 'Qingdao Shengzhong dry-end line simulation'
+    caption: 'ShengZhong dry-end line simulation',
+    brand: 'SHENGZHONG'
   },
   en: {
     label: 'Corrugated board',
@@ -26,20 +27,23 @@ const copy = {
     ],
     cta: 'Learn more',
     hud: ['ENERGY -20%', 'OUTPUT +35%', 'CHANGEOVER 3-6s'],
-    caption: 'Qingdao Shengzhong dry-end line simulation'
+    caption: 'ShengZhong dry-end line simulation',
+    brand: 'SHENGZHONG'
   },
   ru: {
-    label: 'Гофрокартон',
-    title: <>Повышение эффективности <strong>end-to-end</strong></>,
+    label: 'Сухая часть линии',
+    title: <>Больше <strong>стабильности</strong> в процессе</>,
     points: [
-      'Снижение энергопотребления сухой части линии до 20%',
-      'Связь поперечной резки, биговки и укладки для гибких заказов',
-      'Рост производительности при снижении общей нагрузки оператора до 90%',
-      'Быстрая адаптация под разные форматы картона'
+      'Меньше простоев и лишних ручных операций на сухой части линии',
+      'Согласованная работа узлов от резки до укладки и отвода готовой продукции',
+      'Управление движением и скоростью помогает сохранять ровный ритм выпуска',
+      'Конфигурацию можно подбирать под ширину, скорость и формат заказов'
     ],
-    cta: 'Подробнее',
-    hud: ['ENERGY -20%', 'OUTPUT +35%', 'CHANGEOVER 3-6s'],
-    caption: 'Qingdao Shengzhong dry-end line simulation'
+    cta: 'К оборудованию',
+    hud: ['PLC + SERVO', '300-400 м/мин', 'CHANGEOVER 3-6s'],
+    caption: 'ShengZhong',
+    brand: 'SHENGZHONG'
+
   }
 }
 
@@ -66,7 +70,7 @@ export default function EfficiencyFilm() {
 
         <div className="efficiency-film__screen reveal" aria-label={text.caption}>
           <div className="efficiency-film__viewport">
-            <img className="efficiency-film__machine" src={asset('/images/shengzhong-efficiency-line.jpg')} alt="Qingdao Shengzhong dry-end equipment" />
+            <img className="efficiency-film__machine" src={asset('/images/shengzhong-efficiency-line.jpg')} alt="ShengZhong dry-end equipment" />
             <div className="efficiency-film__belt" aria-hidden="true">
               {Array.from({ length: 7 }, (_, index) => (
                 <span key={index} style={{ '--delay': `${index * -0.72}s` }} />
@@ -86,7 +90,7 @@ export default function EfficiencyFilm() {
             </div>
             <div className="efficiency-film__brand">
               <img src={asset('/images/cys-logo.png')} alt="CYS" />
-              <span>QINGDAO SHENGZHONG</span>
+              <span>{text.brand}</span>
             </div>
           </div>
         </div>
