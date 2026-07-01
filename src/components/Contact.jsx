@@ -10,7 +10,7 @@ export default function Contact() {
     idle: c.form[3],
     sending: '...',
     sent: c.form[4],
-    error: '请稍后再试'
+    error: 'Please try again'
   }
 
   const onSubmit = async (event) => {
@@ -22,13 +22,14 @@ export default function Contact() {
 
     setStatus('sending')
     try {
-      const response = await fetch('https://formsubmit.co/ajax/qdszsk@126.com', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: formData
       })
 
-      if (!response.ok) throw new Error('Form submission failed')
+      const result = await response.json()
+      if (!response.ok || !result.success) throw new Error('Form submission failed')
 
       setStatus('sent')
       form.reset()
@@ -58,10 +59,10 @@ export default function Contact() {
         </div>
 
         <form className="contact-final__form reveal" onSubmit={onSubmit}>
-          <input type="hidden" name="_subject" value="New inquiry from shengzhongcnc.com" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="_honey" tabIndex="-1" autoComplete="off" style={{ display: 'none' }} />
+          <input type="hidden" name="access_key" value="a2df081f-2de5-4ea8-94ab-d57d1f2c33e6" />
+          <input type="hidden" name="subject" value="New inquiry from shengzhongcnc.com" />
+          <input type="hidden" name="from_name" value="Shengzhong CNC Website" />
+          <input type="checkbox" name="botcheck" tabIndex="-1" autoComplete="off" style={{ display: 'none' }} />
           <input type="text" name="name" placeholder={c.form[0]} required />
           <input type="tel" name="phone" placeholder={c.form[1]} required />
           <textarea name="message" rows="6" placeholder={c.form[2]} required />
