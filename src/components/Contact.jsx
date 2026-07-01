@@ -3,14 +3,40 @@ import { useLang } from '../App.jsx'
 
 export default function Contact() {
   const { t } = useLang()
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState('idle')
   const c = t.contact
+  const isSending = status === 'sending'
+  const statusText = {
+    idle: c.form[3],
+    sending: '...',
+    sent: c.form[4],
+    error: '请稍后再试'
+  }
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault()
-    setSent(true)
-    event.currentTarget.reset()
-    window.setTimeout(() => setSent(false), 2200)
+    const form = event.currentTarget
+    const formData = new FormData(form)
+
+    if (formData.get('_honey')) return
+
+    setStatus('sending')
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/qdszsk@126.com', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData
+      })
+
+      if (!response.ok) throw new Error('Form submission failed')
+
+      setStatus('sent')
+      form.reset()
+      window.setTimeout(() => setStatus('idle'), 2600)
+    } catch {
+      setStatus('error')
+      window.setTimeout(() => setStatus('idle'), 3200)
+    }
   }
 
   return (
@@ -32,10 +58,14 @@ export default function Contact() {
         </div>
 
         <form className="contact-final__form reveal" onSubmit={onSubmit}>
-          <input type="text" placeholder={c.form[0]} required />
-          <input type="tel" placeholder={c.form[1]} required />
-          <textarea rows="6" placeholder={c.form[2]} required />
-          <button className="btn btn--primary" type="submit">{sent ? c.form[4] : c.form[3]}</button>
+          <input type="hidden" name="_subject" value="New inquiry from shengzhongcnc.com" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" tabIndex="-1" autoComplete="off" style={{ display: 'none' }} />
+          <input type="text" name="name" placeholder={c.form[0]} required />
+          <input type="tel" name="phone" placeholder={c.form[1]} required />
+          <textarea name="message" rows="6" placeholder={c.form[2]} required />
+          <button className="btn btn--primary" type="submit" disabled={isSending}>{statusText[status]}</button>
         </form>
       </div>
     </section>
