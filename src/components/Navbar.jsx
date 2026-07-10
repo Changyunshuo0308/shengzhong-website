@@ -33,7 +33,6 @@ export default function Navbar({ detailMode = false }) {
   const navItems = [
     ['about', t.nav.about],
     ['products', t.nav.products],
-    ['articles', '文章'],
     ['advantages', t.nav.advantages],
     ['contact', t.nav.contact]
   ]
