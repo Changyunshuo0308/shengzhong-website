@@ -665,6 +665,43 @@ p { color: var(--muted); line-height: 1.75; }
 .product-card em { display: inline-block; margin-top: 18px; color: var(--gold-2); font-style: normal; font-weight: 900; }
 
 .advantages { background: var(--paper); }
+.articles { background: #fff; }
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.article-card {
+  min-height: 290px;
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  padding: 28px;
+  border: 1px solid rgba(122,90,31,.16);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fff, #fbf7ee);
+  box-shadow: 0 18px 46px rgba(28,24,16,.08);
+}
+.article-card span {
+  color: var(--gold-2);
+  font-size: .76rem;
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.article-card h3 {
+  font-size: 1.45rem;
+  line-height: 1.18;
+}
+.article-card p {
+  font-size: .94rem;
+}
+.article-card button {
+  justify-self: start;
+  margin-top: 8px;
+  color: var(--gold-2);
+  font-weight: 900;
+}
 .advantages__inner {
   display: grid;
   grid-template-columns: .72fr 1.28fr;
@@ -763,6 +800,42 @@ p { color: var(--muted); line-height: 1.75; }
 .contact-final__status--error { color: #b42318; }
 
 .detail-page { background: var(--bg); }
+.article-detail {
+  min-height: 100vh;
+  background: var(--bg);
+}
+.article-detail__hero {
+  padding: 150px 0 76px;
+  background: linear-gradient(180deg, #fff, var(--paper));
+}
+.article-detail__hero h1 {
+  max-width: 1120px;
+  margin-top: 18px;
+  font-size: clamp(3rem, 5.6vw, 6.8rem);
+  line-height: .96;
+}
+.article-detail__hero p {
+  max-width: 820px;
+  margin-top: 24px;
+  font-size: 1.08rem;
+}
+.article-detail__body {
+  padding: 82px 0 120px;
+}
+.article-detail__content {
+  max-width: 920px;
+}
+.article-detail__content p {
+  margin-top: 24px;
+  color: #20201d;
+  font-size: 1.08rem;
+}
+.article-detail__empty {
+  padding: 160px 0;
+}
+.article-detail__empty h1 {
+  font-size: clamp(2.6rem, 5vw, 5.6rem);
+}
 .detail-hero {
   min-height: 100vh;
   display: grid;
@@ -870,7 +943,8 @@ p { color: var(--muted); line-height: 1.75; }
   .detail-grid,
   .efficiency-film__grid { grid-template-columns: 1fr; }
   .product-grid,
-  .component-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .component-grid,
+  .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .time-river__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -946,6 +1020,7 @@ p { color: var(--muted); line-height: 1.75; }
   }
   .product-grid,
   .component-grid,
+  .article-grid,
   .advantage-grid,
   .time-river__cards { grid-template-columns: 1fr; }
   .time-river__content { padding: 28px; }
