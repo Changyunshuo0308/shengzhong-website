@@ -8,6 +8,8 @@ import Products from './components/Products.jsx'
 import Advantages from './components/Advantages.jsx'
 import Contact from './components/Contact.jsx'
 import ProductDetail from './components/ProductDetail.jsx'
+import Articles from './components/Articles.jsx'
+import ArticleDetail from './components/ArticleDetail.jsx'
 
 export const LangContext = createContext()
 export const useLang = () => useContext(LangContext)
@@ -29,6 +31,7 @@ export default function App() {
   const route = useHashRoute()
   const t = useMemo(() => getSiteData(lang), [lang])
   const productSlug = route.startsWith('#/product/') ? route.replace('#/product/', '') : ''
+  const articleSlug = route.startsWith('#/article/') ? route.replace('#/article/', '') : ''
   const activeProduct = t.products.items.find((item) => item.slug === productSlug)
 
   useEffect(() => {
@@ -52,15 +55,18 @@ export default function App() {
   return (
     <LangContext.Provider value={{ lang, setLang, t }}>
       <div className="app">
-        <Navbar detailMode={Boolean(activeProduct)} />
+        <Navbar detailMode={Boolean(activeProduct || articleSlug)} />
         {activeProduct ? (
           <ProductDetail product={activeProduct} />
+        ) : articleSlug ? (
+          <ArticleDetail slug={articleSlug} />
         ) : (
           <>
             <Hero />
             <EfficiencyFilm />
             <History />
             <Products />
+            <Articles />
             <Advantages />
             <Contact />
           </>
